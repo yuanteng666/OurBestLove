@@ -5,8 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgArr: ["https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg", "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg", "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product3.jpg", "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product4.jpg","https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product5.jpg",
-    "https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product6.jpg"]
+    imgArr: [],
+    imgIds:[],
+    localPosition:'fasdfdasfdsafsda'
   },
 
   /**
@@ -38,15 +39,50 @@ Page({
     }
   },
   chooseImg(){
-
+    const _this = this;
+    wx.chooseImage({
+      count: 9,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function(res) {
+        let oldImgArr = _this.data.imgArr;
+          _this.setData({
+            imgArr: oldImgArr.concat(res.tempFilePaths)
+          });
+      },
+      fail:function(){
+          console.log("选图失败")
+      }
+    })
+  },
+  uploadFile(){
+    //改写: 数组 多图片 
+    const filePaths = this.data.imgArr, cloudPaths = []; 
+    filePaths.forEach((item, i)=>{
+        cloudPaths.push(i + '_' + filePaths[i].match(/\.[^.]+?$/)[i])  ;
+    })
+    const _this = this;
+    for (let i = 0; i < filePaths.length;i++){
+      wx.cloud.uploadFile({
+        cloudPath: cloudPaths[i],
+        filePath: filePaths[i],
+        success:res=>{
+          console.log(res)
+          let arr = _this.data.imgIds;
+          arr.push(res.fileID)
+          _this.setData({
+            imgIds:arr
+          });
+          console.log(_this.data.imgIds)
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.chooseImage({
-      success: function(res) {},
-    })
+    
   },
 
   /**

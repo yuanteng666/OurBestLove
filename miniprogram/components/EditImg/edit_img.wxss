@@ -2,14 +2,15 @@
 .content{
   display: inline-block;
    position: relative;
+   margin: 10rpx;
 }
 .mainimg{
-  width: 150rpx;
-  height: 150rpx;
+  width: 220rpx;
+  height: 220rpx;
 }
 .deleteimg{
-  width: 40rpx;
-  height: 40rpx;  
+  width: 60rpx;
+  height: 60rpx;  
 }
 .jiao{
    position: absolute;

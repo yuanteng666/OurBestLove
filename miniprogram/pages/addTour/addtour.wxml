@@ -1,11 +1,14 @@
 <view>
+  <textarea placeholder='输入你的想法吧'></textarea>
   <view>
-    <text>想法</text>
-    <textarea placeholder='输入你的想法吧'></textarea>
-  </view>
-  <view>
-
     <editimg wx:for="{{imgArr}}"  wx:key="{{item}}" imgSrc="{{item}}" binddeleteImg="deleteImg"></editimg>
-      <image src='../../images/monitored_photo.png' style='width:150rpx;height:150rpx;' bindtap='chooseImg'></image>
+      <image src='../../images/add_photo.png' style='width:220rpx;height:220rpx;margin:10rpx;' bindtap='chooseImg'></image>
+  </view>
+  <view class='local'>
+    <image src='../../images/local.png'></image>
+    <text>{{localPosition}}</text>
+  </view>
+  <view class='btnlayout'>
+    <button class='uploadbtn' bindtap='uploadFile'>发表</button>
   </view>
 </view>
