@@ -4,6 +4,8 @@
     <textarea placeholder='输入你的想法吧'></textarea>
   </view>
   <view>
+
     <editimg wx:for="{{imgArr}}"  wx:key="{{item}}" imgSrc="{{item}}" binddeleteImg="deleteImg"></editimg>
+      <image src='../../images/monitored_photo.png' style='width:150rpx;height:150rpx;' bindtap='chooseImg'></image>
   </view>
 </view>

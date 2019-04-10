@@ -29,24 +29,24 @@ Page({
     let index = this.data.imgArr.findIndex((val,index,arr)=>{
       return val == src;
     });
-    
-   
-   console.log(index)
     if(index != -1){
       const newarr = this.data.imgArr;
        newarr.splice(index,1);
       this.setData({
         imgArr:newarr
       });
-      console.log(this.data.imgArr)
     }
   },
+  chooseImg(){
 
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.chooseImage({
+      success: function(res) {},
+    })
   },
 
   /**
