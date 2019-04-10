@@ -1,61 +1,35 @@
 /* miniprogram/pages/imagelist/imglist.wxss */
 .uni-product-list {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    flex-direction: row;
+  margin: 20rpx ;
+  padding: 10rpx;
 }
 
-.uni-product {
-    padding: 20upx;
-    display: flex;
-    flex-direction: column;
+.item{
+  background: #FFEFDB;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
 }
 
-.image-view {
-    height: 330upx;
-    width: 330upx;
-	margin:12upx 0;
+.thumpImg{
+  text-align: center;
+  margin: 0 auto;
 }
-
-.uni-product-image {
-    height: 330upx;
-    width: 330upx;
+.desc{
+  color: #FF83FA;
 }
-
-.uni-product-title {
-    width: 300upx;
-    word-break: break-all;
-    display: -webkit-box;
-    overflow: hidden;
-	line-height:1.5;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+.tip{
+  border-radius: 10rpx;
+  background: #eee;
+  font-size: 32rpx;
+  padding: 20rpx;
+  opacity: 0.8;
+  color: #FF82AB;
 }
-
-.uni-product-price {
-	margin-top:10upx;
-    font-size: 28upx;
-	line-height:1.5;
-    position: relative;
+.time{
+  float: left;
 }
-
-.uni-product-price-original {
-    color: #e80080;
-}
-
-.uni-product-price-favour {
-    color: #888888;
-    text-decoration: line-through;
-    margin-left: 10upx;
-}
-
-.uni-product-tip {
-    position: absolute;
-    right: 10upx;
-    background-color: #ff3333;
-    color: #ffffff;
-    padding: 0 10upx;
-    border-radius: 5upx;
+.location{
+  float: right;
 }
