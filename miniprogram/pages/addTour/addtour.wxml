@@ -1,0 +1,9 @@
+<view>
+  <view>
+    <text>想法</text>
+    <textarea placeholder='输入你的想法吧'></textarea>
+  </view>
+  <view>
+    <editimg wx:for="{{imgArr}}"  wx:key="{{item}}" imgSrc="{{item}}" binddeleteImg="deleteImg"></editimg>
+  </view>
+</view>

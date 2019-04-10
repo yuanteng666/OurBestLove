@@ -14,7 +14,7 @@
 
 .thumpImg{
   text-align: center;
-  margin: 0 auto;
+  margin: 10rpx auto;
 }
 .desc{
   color: #FF83FA;
@@ -32,4 +32,20 @@
 }
 .location{
   float: right;
+}
+.xuanfubtn{
+	width: 90%;
+	position: fixed;
+	bottom: 5rpx;
+	z-index: 100;
+	text-align: right;
+	line-height: 0;
+	margin-bottom: 50rpx;
+}
+.xuanfubtn image{
+	border-radius: 80rpx;
+  padding: 30rpx;
+	width: 50rpx;
+	height: 50rpx;
+	background: #205cfd;
 }

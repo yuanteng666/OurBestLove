@@ -1,5 +1,6 @@
 {
   "pages": [
+        "pages/addTour/addtour",
     "pages/joke/joke",
     "pages/nav/nav",
     "pages/imagelist/imglist"
@@ -15,24 +16,26 @@
     "backgroundColor": "#ffffff",
     "color": "#8a8a8a",
     "selectedColor": "#d81e06",
-    "list": [{
-      "pagePath": "pages/imagelist/imglist",
-      "text": "美图",
-      "iconPath": "images/imgs.png",
-      "selectedIconPath": "images/img_sel.png"
-    },
-    {
-      "pagePath": "pages/joke/joke",
-      "text": "笑话",
-      "iconPath": "images/joke.png",
-      "selectedIconPath": "images/joke_sel.png"
-    },
-    {
-      "pagePath": "pages/nav/nav",
-      "text": "导航",
-      "iconPath": "images/nav.png",
-      "selectedIconPath": "images/nav_sel.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/imagelist/imglist",
+        "text": "美图",
+        "iconPath": "images/imgs.png",
+        "selectedIconPath": "images/img_sel.png"
+      },
+      {
+        "pagePath": "pages/joke/joke",
+        "text": "笑话",
+        "iconPath": "images/joke.png",
+        "selectedIconPath": "images/joke_sel.png"
+      },
+      {
+        "pagePath": "pages/nav/nav",
+        "text": "导航",
+        "iconPath": "images/nav.png",
+        "selectedIconPath": "images/nav_sel.png"
+      }
+    ]
   },
   "plugins": {
     "brickLayout": {

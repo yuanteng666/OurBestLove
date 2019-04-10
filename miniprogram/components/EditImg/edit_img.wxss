@@ -1,0 +1,18 @@
+/* components/EditImg/edit_img.wxss */
+.content{
+  display: inline-block;
+   position: relative;
+}
+.mainimg{
+  width: 150rpx;
+  height: 150rpx;
+}
+.deleteimg{
+  width: 40rpx;
+  height: 40rpx;  
+}
+.jiao{
+   position: absolute;
+   top: 0px;
+   right: 0px;    
+}

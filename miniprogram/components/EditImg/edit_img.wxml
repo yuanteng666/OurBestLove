@@ -1,0 +1,7 @@
+<!--components/EditImg/edit_img.wxml-->
+   <view class='content'>
+    <image src='{{imgSrc}}' class='mainimg' bindlongtap='setDeleteShow'></image>
+    <view wx:if="{{isShowDelete}}" class='jiao'>
+      <image src='../../images/monitored_delete.png' class='deleteimg' bindtap='deleteImg'></image>
+    </view>
+   </view>

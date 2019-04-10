@@ -1,6 +1,6 @@
 <view >
 		<view class="uni-product-list">
-			<view class="item" wx:for="{{productList}}">
+			<view class="item" wx:for="{{productList}}" wx:key="{{index}}">
 				<image  class="thumpImg" src="{{item.image}}" ></image>
         <view class='tip'>
           <text class="desc">￥{{item.originalPrice}}</text>
@@ -10,5 +10,10 @@
           </view>
         </view>
 			</view>
+      <navigator open-type='navigateTo' url='../addTour/addtour'>
+       <view class="xuanfubtn" >
+			   <image src="../../images/white_plus.png" mode="aspectFit"></image>
+		    </view>
+      </navigator>
 		</view>
 </view>
