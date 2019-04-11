@@ -1,12 +1,12 @@
 <view >
 		<view class="uni-product-list">
-			<view class="item" wx:for="{{productList}}" wx:key="{{index}}">
-				<image  class="thumpImg" src="{{item.image}}" ></image>
+			<view class="item" wx:for="{{storyList}}" wx:key="{{index}}">
+				<image  class="thumpImg" src="{{item.fengmianImg}}" ></image>
         <view class='tip'>
-          <text class="desc">￥{{item.originalPrice}}</text>
+          <text class="desc">{{item.msg}}</text>
           <view class="timeAndLocation">
-            <text class="time">2019-04-05</text>
-            <text class="location">郑州</text>
+            <text class="time">{{item.createTime}}</text>
+            <text class="location">{{item.position}}</text>
           </view>
         </view>
 			</view>

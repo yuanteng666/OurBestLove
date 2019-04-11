@@ -37,6 +37,9 @@ textarea{
   margin-top: 100rpx;
   width: 200rpx;
   height: 80rpx;
+  line-height: 80rpx;
   color: white;
   background-color: #205cfd;
+    text-align: center;
+  
 }

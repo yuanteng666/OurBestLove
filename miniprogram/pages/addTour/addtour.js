@@ -1,6 +1,6 @@
 // miniprogram/pages/addTour/addtour.js
 import amap from '../../common/amap-wx.js';  
-
+import {dateFtt} from '../../common/util.js'
 Page({
 
   /**
@@ -66,6 +66,10 @@ Page({
   },
   uploadFile(){
     //改写: 数组 多图片 
+    wx.showLoading({
+      title: '数据提交中...',
+      mask:true
+    })
     const filePaths = this.data.imgArr, cloudPaths = []; 
     filePaths.forEach((item, i)=>{
         cloudPaths.push(i + '_' + filePaths[i].match(/\.[^.]+?$/)[0])  ;
@@ -96,21 +100,28 @@ Page({
       console.log('res',res)
       if (res) {
 
-        const db = wx.cloud.database({
-          env: 'test'
-        });
+        const db = wx.cloud.database();
+        
         db.collection('story').add({
           data: {
             position: _this.data.localPosition,
             msg: _this.data.msg,
-            createTime: '2019-04-01',
-            imgs: _this.data.imgIds
+            createTime: dateFtt("yyyy-MM-dd hh:mm:ss",new Date()),
+            imgs: _this.data.imgIds,
+            fengmianImg: _this.data.imgIds[0]
           },
           success(res) {
             console.log('data--',res)
+            wx.hideLoading()
           },
-          fail(){
-            console.log('uploaddata fail')
+          fail(err){
+            wx.showModal({
+              title: '警告',
+              content: '数据提交失败，请重试',
+              success(res){
+                wx.hideLoading()
+              }
+            })
           }
         })
       }
