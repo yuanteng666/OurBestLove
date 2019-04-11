@@ -1,4 +1,6 @@
 // miniprogram/pages/addTour/addtour.js
+import amap from '../../common/amap-wx.js';  
+
 Page({
 
   /**
@@ -7,14 +9,21 @@ Page({
   data: {
     imgArr: [],
     imgIds:[],
-    localPosition:'fasdfdasfdsafsda'
+    localPosition:'内乡县南王村249省道附近',
+    amapPlugin: null,
+    key: 'c80a0724125ba2b893265e10a54863b2',
+    address:'',
+    msg:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.data.amapPlugin = new amap.AMapWX({
+      key: this.data.key
+    });  
+    this.getRegeo();
   },
 
   /**
@@ -42,7 +51,7 @@ Page({
     const _this = this;
     wx.chooseImage({
       count: 9,
-      sizeType: ['original', 'compressed'],
+      sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: function(res) {
         let oldImgArr = _this.data.imgArr;
@@ -59,25 +68,76 @@ Page({
     //改写: 数组 多图片 
     const filePaths = this.data.imgArr, cloudPaths = []; 
     filePaths.forEach((item, i)=>{
-        cloudPaths.push(i + '_' + filePaths[i].match(/\.[^.]+?$/)[i])  ;
+        cloudPaths.push(i + '_' + filePaths[i].match(/\.[^.]+?$/)[0])  ;
     })
     const _this = this;
-    for (let i = 0; i < filePaths.length;i++){
-      wx.cloud.uploadFile({
-        cloudPath: cloudPaths[i],
-        filePath: filePaths[i],
-        success:res=>{
-          console.log(res)
-          let arr = _this.data.imgIds;
-          arr.push(res.fileID)
-          _this.setData({
-            imgIds:arr
-          });
-          console.log(_this.data.imgIds)
+    new Promise((resolve) =>{
+      for (let i = 0; i < filePaths.length; i++) {
+        wx.cloud.uploadFile({
+          cloudPath: cloudPaths[i],
+          filePath: filePaths[i],
+          success: res => {
+            console.log(res)
+            let arr = _this.data.imgIds;
+            arr.push(res.fileID)
+            _this.setData({
+              imgIds: arr
+            });
+            if(i == filePaths.length-1){
+              resolve(true)
+            }
+          },
+          fail(){
+            resolve(false)
+          }
+        })
         }
-      })
-    }
+    }).then(res => {
+      console.log('res',res)
+      if (res) {
+
+        const db = wx.cloud.database({
+          env: 'test'
+        });
+        db.collection('story').add({
+          data: {
+            position: _this.data.localPosition,
+            msg: _this.data.msg,
+            createTime: '2019-04-01',
+            imgs: _this.data.imgIds
+          },
+          success(res) {
+            console.log('data--',res)
+          },
+          fail(){
+            console.log('uploaddata fail')
+          }
+        })
+      }
+    });
   },
+  setMsg(e){
+    this.setData({
+      msg : e.detail.value
+    })
+  },
+ 
+  getRegeo() {  
+    const _this = this;
+    this.data.amapPlugin.getRegeo({
+      success: (data) => {
+        console.log(data)
+       // this.data.addressName = data[0].name;
+        _this.setData({
+          localPosition:data[0].desc
+        })
+      },
+      fail: (data) => {
+        console.log(JSON.stringify(data))
+
+      }
+    });
+  }  ,
   /**
    * 生命周期函数--监听页面显示
    */

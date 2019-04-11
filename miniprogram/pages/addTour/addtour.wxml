@@ -1,5 +1,5 @@
 <view>
-  <textarea placeholder='输入你的想法吧'></textarea>
+  <textarea placeholder='输入你的想法吧' bindinput="setMsg"></textarea>
   <view>
     <editimg wx:for="{{imgArr}}"  wx:key="{{item}}" imgSrc="{{item}}" binddeleteImg="deleteImg"></editimg>
       <image src='../../images/add_photo.png' style='width:220rpx;height:220rpx;margin:10rpx;' bindtap='chooseImg'></image>

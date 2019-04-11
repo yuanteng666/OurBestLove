@@ -43,5 +43,10 @@
       "provider": "wx3c042630f3cdc175"
     }
   },
-  "cloud": true
+  "cloud": true,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取当前位置"
+    }
+  }
 }
