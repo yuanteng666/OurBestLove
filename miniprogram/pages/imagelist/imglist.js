@@ -19,7 +19,6 @@ Page({
     const db = wx.cloud.database()
     db.collection('story').count({
       success(res){
-        wx.startPullDownRefresh();
         const count = res.total;
         totalPage = Math.ceil(res.total / PAGE_LIMIT);
         _this.getlist()
@@ -60,6 +59,7 @@ Page({
    */
   onPullDownRefresh: function () {
     currentPage = 1;
+
     this.getlist();
   },
 
@@ -76,9 +76,7 @@ Page({
       })
     }
   },
-  test(){
-    return "fasfdsa"
-  },
+  
   getlist(){
     const _this = this;
     const db = wx.cloud.database();
