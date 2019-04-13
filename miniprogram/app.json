@@ -10,7 +10,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#205cfd",
     "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",    
   },
   "tabBar": {
     "backgroundColor": "#ffffff",

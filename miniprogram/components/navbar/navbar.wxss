@@ -1,0 +1,35 @@
+/* components/navbar/navbar.wxss */
+
+.nav{
+  position: relative;
+  background: #205cfd;
+  margin-top: 25px;
+  padding: 10rpx 0 10rpx 0;
+}
+.leftblock{
+  position: absolute;
+   margin-left: 20rpx;
+    display: inline-block;
+    flex-direction: row;
+    border-radius: 50rpx;
+    border: 1rpx solid #fff;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 0 10rpx 0 10rpx;
+}
+.leftimg{
+  width: 48rpx;
+  height: 48rpx;
+  padding-top: 6rpx;
+}
+
+.nav-title{
+  font-size: 36rpx;
+  color: #fff;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+    margin: 0 auto;
+
+  display: block;
+}

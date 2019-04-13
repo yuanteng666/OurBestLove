@@ -1,0 +1,17 @@
+<view >
+ <view class='nav'>
+   <view class='leftblock'>
+    <block wx:if='{{!isFirstPage}}'>
+        <image class='leftimg' src='../../images/back-arrow.png' bindtap='navBack' ></image>
+    <image class='leftimg' src='../../images/line.png' ></image>
+    </block>
+    <image class='leftimg' src='../../images/share.png'
+    bindtap='doShare'></image>
+    <image class='leftimg' src='../../images/line.png'></image>
+    <image class='leftimg' src='../../images/like.png'
+    bindtap='doLike'></image>
+  </view>
+
+  <text class='nav-title'>{{navTitle}}</text> 
+ </view>
+</view>
