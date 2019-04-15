@@ -7,7 +7,8 @@
 - 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
 
 https://www.cnblogs.com/sminocence/p/6546891.html
-
+批量上传文件
+http://www.wxappclub.com/topic/1135
 ## 参考文档
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 

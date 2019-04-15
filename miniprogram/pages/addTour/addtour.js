@@ -75,31 +75,31 @@ Page({
         cloudPaths.push(i + '_' + filePaths[i].match(/\.[^.]+?$/)[0])  ;
     })
     const _this = this;
-    new Promise((resolve) =>{
-      for (let i = 0; i < filePaths.length; i++) {
-        wx.cloud.uploadFile({
-          cloudPath: cloudPaths[i],
-          filePath: filePaths[i],
-          success: res => {
-            console.log(res)
-            let arr = _this.data.imgIds;
-            arr.push(res.fileID)
-            _this.setData({
-              imgIds: arr
-            });
-            if(i == filePaths.length-1){
+    let promise = Promise.all(filePaths.map((imgpath,index) =>{
+        return new Promise((resolve,reject)=>{
+          wx.cloud.uploadFile({
+            cloudPath: cloudPaths[index],
+            filePath:imgpath,
+            success:res=>{
+              console.log(res)
+              let arr = _this.data.imgIds;
+              arr.push(res.fileID)
+              _this.setData({
+                imgIds: arr
+              });
               resolve(true)
+            },
+            fail(){
+              console.log('imfail',index)
+              reject(false)
             }
-          },
-          fail(){
-            resolve(false)
-          }
+          });
         })
-        }
-    }).then(res => {
+    }));
+    promise.then(res => {
       console.log('res',res)
       if (res) {
-
+        console.log('img array',_this.data.imgIds)
         const db = wx.cloud.database();
         
         db.collection('story').add({

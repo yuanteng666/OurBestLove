@@ -1,7 +1,8 @@
 {
   "pages": [
+    "pages/addTour/addtour",
         "pages/imagelist/imglist",
-        "pages/addTour/addtour",
+        
     "pages/joke/joke",
     "pages/nav/nav"
   ],
@@ -10,7 +11,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#205cfd",
     "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "white",    
+    "navigationBarTextStyle": "white",  
+    "navigationStyle": "default" 
   },
   "tabBar": {
     "backgroundColor": "#ffffff",

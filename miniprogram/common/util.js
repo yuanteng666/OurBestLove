@@ -85,6 +85,10 @@ var dateUtils = {
 	}
 };
 
+
+function uploadFiles(){
+  
+}
 module.exports = {
 	formatTime: formatTime,
 	formatLocation: formatLocation,
