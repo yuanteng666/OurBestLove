@@ -1,0 +1,4 @@
+<!--miniprogram/pages/joke_detail/joke_detail.wxml-->
+<view >
+  <web-view src='{{src}}'></web-view>
+</view>

@@ -1,18 +1,18 @@
 {
   "pages": [
-    "pages/addTour/addtour",
-        "pages/imagelist/imglist",
-        
     "pages/joke/joke",
-    "pages/nav/nav"
+    "pages/addTour/addtour",
+    "pages/imagelist/imglist",
+    "pages/nav/nav",
+    "pages/joke_detail/joke_detail"
   ],
   "window": {
     "backgroundColor": "#205cfd",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#205cfd",
     "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "white",  
-    "navigationStyle": "default" 
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default"
   },
   "tabBar": {
     "backgroundColor": "#ffffff",

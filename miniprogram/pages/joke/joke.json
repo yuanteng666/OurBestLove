@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "brickLayout":"plugin://brickLayout/brickLayout"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText":"笑话大全"
 }

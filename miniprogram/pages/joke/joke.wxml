@@ -1,2 +1,10 @@
 <!--miniprogram/pages/joke/joke.wxml-->
-<text>miniprogram/pages/joke/joke.wxml</text>
+ 
+<view style='margin-top:20rpx;'>
+  <brickLayout
+    dataSet="{{dataSet}}"
+    option="{{brick_option}}"
+    bind:tapCard="tapCard"
+    bind:onCardExpanded="onCardExpanded"
+  />
+</view>
