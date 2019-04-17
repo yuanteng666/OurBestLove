@@ -4,7 +4,8 @@
     "pages/addTour/addtour",
     "pages/imagelist/imglist",
     "pages/nav/nav",
-    "pages/joke_detail/joke_detail"
+    "pages/joke_detail/joke_detail",
+    "pages/weather/weather"
   ],
   "window": {
     "backgroundColor": "#205cfd",
@@ -34,6 +35,12 @@
       {
         "pagePath": "pages/nav/nav",
         "text": "导航",
+        "iconPath": "images/nav.png",
+        "selectedIconPath": "images/nav_sel.png"
+      },
+      {
+        "pagePath": "pages/weather/weather",
+        "text": "天气",
         "iconPath": "images/nav.png",
         "selectedIconPath": "images/nav_sel.png"
       }
