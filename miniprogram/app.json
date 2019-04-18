@@ -1,8 +1,8 @@
 {
   "pages": [
+        "pages/imagelist/imglist",
     "pages/joke/joke",
     "pages/addTour/addtour",
-    "pages/imagelist/imglist",
     "pages/nav/nav",
     "pages/joke_detail/joke_detail",
     "pages/weather/weather"

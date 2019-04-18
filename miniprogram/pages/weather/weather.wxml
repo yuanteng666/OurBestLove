@@ -1,4 +1,61 @@
-<view class="container">
-    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-    <button type="primary" bindtap="updateData">更新数据</button>
+<view class="container global" >
+
+    <view class='currentWendu'>
+      <text >{{weatherDatas[0].temNum}}</text>
+      <image src='../../images/du.png'></image>
+    </view>
+    <view class='index'>
+      <view class='weilai'>
+        <image src='../../images/air.png'></image>
+        <text>{{weatherDatas[0].air_level}} {{weatherDatas[0].air}}</text>
+      </view>
+     
+      <text style='align-self:center;margin-left:50rpx;margin-right:50rpx;'>|</text>
+      <view class='weilai'>
+        <image src='../../images/water.png'></image>
+        <text>{{weatherDatas[0].win_speed}}</text>
+      </view>
+    </view>
+
+    <view class='threedayweather'>  
+      <view class='item'>
+        <view class='left'>
+          <text>{{weatherDatas[0].day}}• {{weatherDatas[0].wea}}</text>
+        </view>
+        <view class='right'>
+          <image src='{{weatherDatas[0].wea_img_local}}' ></image>
+          <text>{{weatherDatas[0].temNum1}}/{{weatherDatas[0].tem2}}</text>
+        </view>
+      </view>
+
+       <view class='item'>
+        <view class='left'>
+          <text>{{weatherDatas[1].day}}• {{weatherDatas[1].wea}}</text>
+        </view>
+        <view class='right'>
+          <image src='{{weatherDatas[1].wea_img_local}}' ></image>
+          <text>{{weatherDatas[1].temNum1}}/{{weatherDatas[1].tem2}}</text>
+        </view>
+      </view>
+
+       <view class='item'>
+        <view class='left'>
+          <text>{{weatherDatas[2].day}}• {{weatherDatas[2].wea}}</text>
+        </view>
+        <view class='right'>
+          <image src='{{weatherDatas[2].wea_img_local}}' ></image>
+          <text>{{weatherDatas[2].temNum1}}/{{weatherDatas[2].tem2}}</text>
+        </view>
+      </view>
+      <text class='sevenday'>7天趋势预报</text>
+    </view>
+  <view class='threedayweather'>
+   <text class='sevenday'>分时预报</text>
+   <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+  </view>
+
+  <view class='threedayweather'>
+   <text class='sevenday'>7天趋势预报</text>
+   <canvas canvas-id="lineCanvas2" disable-scroll="true" class="canvas" bindtouchstart="touchHandler2"></canvas>
+  </view>
 </view>

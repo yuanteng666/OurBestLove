@@ -1,1 +1,86 @@
 /* miniprogram/pages/weather/weather.wxss */
+canvas{
+  height: 600rpx;
+}
+
+.global{
+  padding:20rpx;
+  background: #82ABF2;
+  background-size: 100%;
+}
+.currentWendu{
+  width: 210rpx;
+  font-size: 150rpx;
+  color: white;
+  position: relative;
+}
+.currentWendu image{
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 0;
+}
+.index{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: white;
+}
+.index image{
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 21rpx;
+  margin-right: 20rpx;
+}
+.threedayweather{
+  width: 100%;
+  padding: 20rpx;
+  background:rgba(245, 245, 245, 0.2);
+  border-radius: 20rpx;
+  color: white;
+  font-size: 36rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
+}
+.label{
+  margin-left: 20rpx;
+  background:rgba(204, 204, 204, 0.5);
+  border-radius: 5rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.right,.weilai{
+  display: flex;
+  flex-direction: row;
+}
+.right text{
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.right image{
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 20rpx;
+}
+.sevenday{
+  display: block;
+  height: 80rpx;
+  width: 100%;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 0 auto;
+}
