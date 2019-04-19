@@ -41,8 +41,8 @@
       {
         "pagePath": "pages/weather/weather",
         "text": "天气",
-        "iconPath": "images/nav.png",
-        "selectedIconPath": "images/nav_sel.png"
+        "iconPath": "images/tianqi_com.png",
+        "selectedIconPath": "images/tianqi_sel.png"
       }
     ]
   },

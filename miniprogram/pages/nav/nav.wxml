@@ -1,2 +1,4 @@
 <!--miniprogram/pages/nav/nav.wxml-->
-<text>miniprogram/pages/nav/nav.wxml</text>
+<view>
+ <web-view src="https://m.amap.com/"></web-view>
+</view>

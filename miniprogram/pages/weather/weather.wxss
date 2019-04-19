@@ -8,11 +8,24 @@ canvas{
   background: #82ABF2;
   background-size: 100%;
 }
+.head{
+  display: flex;
+  flex-direction: row;
+}
 .currentWendu{
   width: 210rpx;
   font-size: 150rpx;
   color: white;
   position: relative;
+}
+.postions{
+  color: white;
+  font-size: 36rpx;
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30rpx;
 }
 .currentWendu image{
   width: 48rpx;
@@ -54,7 +67,9 @@ canvas{
   line-height: 90rpx;
   text-align: center;
   align-items: center;
-  border-bottom: 1rpx solid #ccc;
+}
+.needBorder{
+    border-bottom: 1rpx solid #ccc;
 }
 .label{
   margin-left: 20rpx;
@@ -83,4 +98,8 @@ canvas{
   line-height: 80rpx;
   text-align: center;
   margin: 0 auto;
+}
+canvas{
+  margin: 0 auto;
+  text-align: center;
 }

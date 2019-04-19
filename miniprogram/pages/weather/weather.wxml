@@ -1,9 +1,21 @@
 <view class="container global" >
 
-    <view class='currentWendu'>
-      <text >{{weatherDatas[0].temNum}}</text>
-      <image src='../../images/du.png'></image>
+    <view class='head'>
+      <view class='currentWendu'>
+        <text >{{weatherDatas[0].temNum}}</text>
+        <image src='../../images/du.png'></image>
+      </view>
+      <view class='postions'>
+        <text>{{postiondes}}</text>
+    
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{cityArr}}" range-key='name'>
+        <view class="picker">
+          选择城市：{{cityArr[index].name}}
+        </view>
+    </picker>
+      </view>
     </view>
+
     <view class='index'>
       <view class='weilai'>
         <image src='../../images/air.png'></image>
@@ -12,13 +24,13 @@
      
       <text style='align-self:center;margin-left:50rpx;margin-right:50rpx;'>|</text>
       <view class='weilai'>
-        <image src='../../images/water.png'></image>
+        <image src='../../images/fengya.png'></image>
         <text>{{weatherDatas[0].win_speed}}</text>
       </view>
     </view>
 
     <view class='threedayweather'>  
-      <view class='item'>
+      <view class='item needBorder'>
         <view class='left'>
           <text>{{weatherDatas[0].day}}• {{weatherDatas[0].wea}}</text>
         </view>
@@ -28,7 +40,7 @@
         </view>
       </view>
 
-       <view class='item'>
+       <view class='item needBorder'>
         <view class='left'>
           <text>{{weatherDatas[1].day}}• {{weatherDatas[1].wea}}</text>
         </view>
@@ -47,7 +59,6 @@
           <text>{{weatherDatas[2].temNum1}}/{{weatherDatas[2].tem2}}</text>
         </view>
       </view>
-      <text class='sevenday'>7天趋势预报</text>
     </view>
   <view class='threedayweather'>
    <text class='sevenday'>分时预报</text>
