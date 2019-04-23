@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
     console.log(options)
     let id = options.id;
-    let src = 'http://m.sohu.com/a/'+id;
+    let src = 'https://m.sohu.com/a/'+id;
     this.setData({
       src
     })

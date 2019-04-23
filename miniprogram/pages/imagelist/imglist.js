@@ -2,13 +2,15 @@
 const PAGE_LIMIT = 10;
 let currentPage = 1;
 let totalPage = 1;
+import { dateUtils} from '../../common/util.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    storyList: []
+    storyList: [],
+    height: '', // 获取当前页面的可视高度
   },
 
   /**
@@ -20,6 +22,7 @@ Page({
     db.collection('story').count({
       success(res){
         const count = res.total;
+ 
         totalPage = Math.ceil(res.total / PAGE_LIMIT);
         _this.getlist()
       }
@@ -87,6 +90,9 @@ Page({
       success(res){
         console.log('res',res)
         let resArray = res.data;
+        for (let item of resArray) {
+          _this.parseItem(item);
+        }
         _this.setData({
           storyList: _this.data.storyList.concat(resArray)
         });
@@ -103,5 +109,21 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  preViewImg(event){
+    console.log(event)
+    wx.previewImage({
+      urls: event.target.dataset.urls,
+      current: event.target.dataset.current,
+      success(res){
+        console.log(res)
+      },
+      fail(err){
+        console.log(err)
+      }
+    })
+  },
+  parseItem(item){
+    item.createTime = dateUtils.format(item.createTime);
   }
 })

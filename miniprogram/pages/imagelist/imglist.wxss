@@ -1,37 +1,35 @@
 /* miniprogram/pages/imagelist/imglist.wxss */
 .uni-product-list {
-  margin: 20rpx ;
+  margin: 10rpx ;
   padding: 10rpx;
 }
 
 .item{
-  background: #FFEFDB;
-  border-radius: 20rpx;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-top: 20rpx;
 }
 
-.thumpImg{
-  text-align: center;
-  margin: 10rpx auto;
+.username{
+  font-size: 38rpx;
+  color: #205cfd;
 }
 .desc{
-  color: #FF83FA;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  color: black;
+  font-size: 34rpx;
 }
-.tip{
-  border-radius: 10rpx;
-  background: #eee;
-  font-size: 32rpx;
-  padding: 20rpx;
-  opacity: 0.8;
-  color: #FF82AB;
-}
+
 .time{
-  float: left;
+  color: #ccc;
+  font-size: 28rpx;
 }
 .location{
-  float: right;
+  color: #205cfd;
+  font-size: 28rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
 }
 .xuanfubtn{
 	width: 90%;
@@ -48,4 +46,23 @@
 	width: 50rpx;
 	height: 50rpx;
 	background: #205cfd;
+}
+
+.miniimg{
+  width: 180rpx;
+  height: 180rpx;
+  margin: 5rpx 5rpx 0rpx 5rpx;
+}
+.listleft{
+margin-right: 10rpx;
+}
+.listleft image{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 10rpx;
+  border-radius: 10rpx;
+}
+.listright{
+  display: flex;
+  flex-direction: column;
 }

@@ -1,13 +1,17 @@
 <view >
 		<view class="uni-product-list">
-			<view class="item" wx:for="{{storyList}}" wx:key="{{index}}">
-				<image  class="thumpImg" src="{{item.fengmianImg}}" ></image>
-        <view class='tip'>
+			<view class="item" wx:for="{{storyList}}" wx:key="{{item}}">
+        <view class='listleft'>
+        <image src='../../images/yu.png'></image>
+        </view>
+        <view class='listright'>
+          <text class="username">测试用户名</text>
           <text class="desc">{{item.msg}}</text>
-          <view class="timeAndLocation">
-            <text class="time">{{item.createTime}}</text>
-            <text class="location">{{item.position}}</text>
+          <view>
+            <image class='miniimg' wx:for="{{item.imgs}}" wx:for-item="src" wx:key="{{src}}" wx:for-index="imgindex" src="{{src}}" bindtap='preViewImg' data-urls="{{item.imgs}}" data-current="{{src}}"></image>
           </view>
+          <text class="location">{{item.position}}</text>
+          <text class="time">{{item.createTime}}</text>
         </view>
 			</view>
       <navigator open-type='navigateTo' url='../addTour/addtour'>
