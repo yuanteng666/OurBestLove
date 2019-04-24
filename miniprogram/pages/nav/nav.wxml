@@ -1,4 +1,31 @@
 <!--miniprogram/pages/nav/nav.wxml-->
 <view>
- <web-view src="https://m.amap.com/"></web-view>
+  <view class='startAndEnd'>
+    <view class='positions'>
+      <view class='item needborder'>
+        <image src='../../images/green_dot.png'></image>
+        <input placeholder='我的位置'></input>
+      </view>
+      <view class='item'>
+        <image src='../../images/red_dot.png'></image>
+        <input placeholder='输入终点' bindinput="endInput"></input>
+      </view>
+    </view>
+    <image class='exchange' src='../../images/exchange_arrow.png'></image>
+ </view>
+ <view class='type needborder'>
+  <image  src='../../images/car.png'></image>
+  <image  src='../../images/bus.png'></image>
+  <image  src='../../images/walk.png'></image>
+  <image  src='../../images/ride.png'></image>
+ </view>
+ <view class='postions'>
+    <view class='positionItem needborder' wx:for="{{positions}}"  wx:key="{{index}}">
+     <text class='first' bindtap='selectItem' data-item="{{item}}">{{item.title}}</text>
+     <text class='second'>{{item.addr}}</text>
+     <text class='second'>距离 ：{{item.distance}}</text>
+    </view>
+ </view>
+ <map>
+ </map>
 </view>

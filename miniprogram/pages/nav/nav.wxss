@@ -1,1 +1,73 @@
 /* miniprogram/pages/nav/nav.wxss */
+.startAndEnd{
+  display: flex;
+  flex-direction: row;
+}
+.positions{
+  width: 90%;
+}
+.item{
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+}
+.item image{
+  width: 24rpx;
+  height: 24rpx;
+  padding-top: 28rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.item input{
+  color: black;
+  font-size: 36rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.needborder{
+  border-bottom: 1rpx solid #ccc;
+}
+.exchange{
+  padding-top: 48rpx;
+  width: 64rpx;
+  height: 64rpx;
+}
+.type{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+}
+.type image{
+  width: 64rpx;
+  height: 64rpx;
+}
+map{
+  width: 100%;
+  height: 800rpx;
+  z-index: 5;
+}
+.postions{
+  position: absolute;
+  left: 0;
+  top:240rpx;
+  z-index: 10;
+  width: 100%;
+}
+.positionItem{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  background: white;
+}
+.first{
+font-size: 38rpx;
+color: black;
+margin-bottom: 10rpx;
+}
+.second{
+  font-size: 32rpx;
+  color: #999;
+}
