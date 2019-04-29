@@ -11,11 +11,15 @@ Page({
     positions :[],
     //路线规划用到的点
     polylines:[],
-    //当前点
-    currentPoint:'',
-    //要去的点
+    //当前点的名称
+    currentPoint:'我的位置',
+    //要去的点名称
     toPoint:'',
-    qqmapsdk:null
+    qqmapsdk:null,
+    fromPositon:null,
+    toPosition:null,
+    //驾驶模式
+    mode:''
   },
 
   /**
@@ -46,6 +50,7 @@ Page({
     console.log(input)
     if(input.length > 2){
       let promise = new Promise((resolve,reject)=>{
+        //获取当前位置
         wx.getLocation({
           type: 'wgs84',
           success(res) {
@@ -54,6 +59,13 @@ Page({
             const longitude = res.longitude
             const speed = res.speed
             const accuracy = res.accuracy
+            let position = {
+              latitude,
+              longitude
+            }
+            _this.setData({
+              fromPositon:position
+            })
             resolve(res.latitude + "," + res.longitude);
           },
           fail(err){
@@ -62,7 +74,9 @@ Page({
         });
       });
       
+
       promise.then(function(resolve){
+        //关键词输入提示
         _this.data.qqmapsdk.getSuggestion({
           //获取输入框值并设置keyword参数
           keyword: input, //用户输入的关键词，可设置固定值,如keyword:'KFC'
@@ -138,7 +152,50 @@ Page({
         });
   },
   selectItem(event){
-    console.log('item',event)
+    console.log('item',event.target.dataset.item)
+    let item = event.target.dataset.item;
+    let postion = {
+      latitude: item.latitude,
+      longitude: item.longitude
+    }
+    this.setData({
+      toPosition:postion,
+      toPoint:item.title
+    })
+  },
+  exChangePosition(){
+    //交换来往的位置
+    let tempPositon = this.data.fromPositon;
+    let temPosition2 = this.data.toPosition;
+    let tempFromName = this.data.currentPoint;
+    let tempToName = this.data.toPoint;
+    this.setData({
+      fromPositon:temPosition2,
+      toPosition:tempPositon,
+      currentPoint:tempToName,
+      toPoint:tempFromName
+    })
+  },
+  selectMode(event){
+    console.log('mode', event.target.dataset.mode)
+    this.setData({
+      mode: event.target.dataset.mode
+    });
+    let _this = this;
+    //如果来往点不为空 下一步 路线规划
+    if(this.data.fromPositon && this.data.toPosition){
+      _this.data.qqmapsdk.direction({
+        mode:_this.data.mode,
+        from:_this.data.fromPositon,
+        to:_this.data.toPosition,
+        success(res){
+          console.log('dirction',res)
+        },
+        fail(err){
+          console.log('dirction fail', err)
+        }
+      });
+    }
   },
   /**
    * 生命周期函数--监听页面隐藏
@@ -154,24 +211,6 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+ 
 })
