@@ -1,6 +1,6 @@
 // miniprogram/pages/nav/nav.js
 // key  WMABZ-KK3RQ-OII5A-GJLPY-Q4AGK-H6FK4
-var QQMapWX = require('../../common/qqmap-wx-jssdk.min.js');
+var QQMapWX = require('../../common/qqmap-wx-jssdk.js');
 Page({
 
   /**
@@ -19,15 +19,48 @@ Page({
     fromPositon:null,
     toPosition:null,
     //驾驶模式
-    mode:''
+    mode:'',
+    //路线
+    polyline:null,
+    markers:[],
+    isShow:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let  _this = this;
     this.data.qqmapsdk = new QQMapWX({
       key: 'WMABZ-KK3RQ-OII5A-GJLPY-Q4AGK-H6FK4' // 必填
+    });
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        console.log("res", res)
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+        let position = {
+          latitude,
+          longitude
+        }
+        let maker = [{
+          latitude,
+          longitude,
+          iconPath: '../../images/centerPos.png',
+          width:32,
+          height:32
+        }];
+        _this.setData({
+          fromPositon: position,
+          markers:maker
+        })
+      },
+      fail(err) {
+        console.log(err)
+      }
     });
   },
 
@@ -49,10 +82,13 @@ Page({
     let input = event.detail.value;
     console.log(input)
     if(input.length > 2){
+      this.setData({
+        isShow:true
+      })
       let promise = new Promise((resolve,reject)=>{
         //获取当前位置
         wx.getLocation({
-          type: 'wgs84',
+          type: 'gcj02',
           success(res) {
             console.log("res",res)
             const latitude = res.latitude
@@ -153,6 +189,9 @@ Page({
   },
   selectItem(event){
     console.log('item',event.target.dataset.item)
+    this.setData({
+      isShow:false
+    })
     let item = event.target.dataset.item;
     let postion = {
       latitude: item.latitude,
@@ -184,18 +223,47 @@ Page({
     let _this = this;
     //如果来往点不为空 下一步 路线规划
     if(this.data.fromPositon && this.data.toPosition){
-      _this.data.qqmapsdk.direction({
+      this.data.qqmapsdk.direction({
         mode:_this.data.mode,
         from:_this.data.fromPositon,
         to:_this.data.toPosition,
         success(res){
           console.log('dirction',res)
+          if(_this.data.mode == "walking"){
+            _this.handleWalking(res)
+          }
+         
         },
         fail(err){
           console.log('dirction fail', err)
         }
       });
     }
+  },
+
+  handleWalking(res){
+    var ret = res;
+    var coors = ret.result.routes[0].polyline, pl = [];
+    //坐标解压（返回的点串坐标，通过前向差分进行压缩）
+    var kr = 1000000;
+    for (var i = 2; i < coors.length; i++) {
+      coors[i] = Number(coors[i - 2]) + Number(coors[i]) / kr;
+    }
+    //将解压后的坐标放入点串数组pl中
+    for (var i = 0; i < coors.length; i += 2) {
+      pl.push({ latitude: coors[i], longitude: coors[i + 1] })
+    }
+    console.log(pl)
+
+    let polyline = [{
+      points: pl,
+      arrowLine: true,
+      color: "#205cfd",
+      width: 5
+    }]
+    this.setData({
+      polyline
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏

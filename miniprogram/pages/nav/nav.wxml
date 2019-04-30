@@ -19,13 +19,13 @@
   <image  src='../../images/walk.png' bindtap='selectMode' data-mode='walking'></image>
   <image  src='../../images/ride.png' bindtap='selectMode' data-mode='bicycling'></image>
  </view>
- <view class='postions'>
+ <view class='postions' wx:if="{{isShow}}">
     <view class='positionItem needborder' wx:for="{{positions}}"  wx:key="{{index}}">
      <text class='first' bindtap='selectItem' data-item="{{item}}">{{item.title}}</text>
      <text class='second'>{{item.addr}}</text>
      <text class='second'>距离 ：{{item.distance}}</text>
     </view>
  </view>
- <map>
+ <map polyline="{{polyline}}" longitude="{{fromPositon.longitude}}" latitude="{{fromPositon.latitude}}" markers="{{markers}}">
  </map>
 </view>

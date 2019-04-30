@@ -53,7 +53,7 @@ map{
   position: absolute;
   left: 0;
   top:240rpx;
-  z-index: 10;
+  z-index: 10000;
   width: 100%;
 }
 .positionItem{
