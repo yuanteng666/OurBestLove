@@ -12,6 +12,8 @@
 	"appid": "wx2528ccec9405fc53",
 	"projectname": "OurBestLove",
 	"libVersion": "2.6.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

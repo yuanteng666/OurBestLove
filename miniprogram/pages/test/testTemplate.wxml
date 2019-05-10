@@ -1,0 +1,10 @@
+<view>
+ <form report-submit="true" report-submit-timeout="10000" bindsubmit="handleSubmit">
+ <input type='text' name="username" placeholder='请输入用户名'></input>
+  <input type='text' name="pwd" placeholder='请输入密码'></input>
+
+ <button form-type='submit'>先点击获取formID</button>
+ </form>
+
+ <button bindtap='sendTemplateMsg'>再点击发送模板消息</button>
+</view>

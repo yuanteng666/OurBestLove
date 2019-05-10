@@ -1,11 +1,12 @@
 {
   "pages": [
-        "pages/imagelist/imglist",
+    "pages/imagelist/imglist",
     "pages/joke/joke",
     "pages/addTour/addtour",
     "pages/nav/nav",
     "pages/joke_detail/joke_detail",
-    "pages/weather/weather"
+    "pages/weather/weather",
+    "pages/test/testTemplate"
   ],
   "window": {
     "backgroundColor": "#205cfd",
@@ -43,6 +44,12 @@
         "text": "天气",
         "iconPath": "images/tianqi_com.png",
         "selectedIconPath": "images/tianqi_sel.png"
+      },
+      {
+        "pagePath": "pages/test/testTemplate",
+        "text": "模板",
+        "iconPath": "images/tianqi_com.png",
+        "selectedIconPath": "images/tianqi_sel.png"
       }
     ]
   },
@@ -57,5 +64,6 @@
     "scope.userLocation": {
       "desc": "获取当前位置"
     }
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
